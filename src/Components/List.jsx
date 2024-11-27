@@ -1,43 +1,43 @@
 import React, { useState } from "react";
 import Button from "./Button";
 
-const ListOfMembers = () => {
-  const members = [
-    {
-      name: "Sokheng",
-      role: "admin",
-      created_at: new Date().toDateString(),
-      status: "active",
-    },
-    {
-      name: "Sokheng",
-      role: "user",
-      created_at: new Date().toDateString(),
-      status: "active",
-    },
-    {
-      name: "Sokheng",
-      role: "admin",
-      created_at: new Date().toDateString(),
-      status: "resigned",
-    },
-    {
-      name: "Sokheng",
-      role: "user",
-      created_at: new Date().toDateString(),
-      status: "active",
-    },
-  ];
+const ListOfMembers = ({ user, members }) => {
+  // const members = [
+  //   {
+  //     name: "Sokheng",
+  //     role: "admin",
+  //     created_at: new Date().toDateString(),
+  //     status: "active",
+  //   },
+  //   {
+  //     name: "Sokheng",
+  //     role: "user",
+  //     created_at: new Date().toDateString(),
+  //     status: "active",
+  //   },
+  //   {
+  //     name: "Sokheng",
+  //     role: "admin",
+  //     created_at: new Date().toDateString(),
+  //     status: "resigned",
+  //   },
+  //   {
+  //     name: "Sokheng",
+  //     role: "user",
+  //     created_at: new Date().toDateString(),
+  //     status: "active",
+  //   },
+  // ];
 
   const handleDelete = () => {
     console.log("delete");
   };
 
   return (
-    <div className="  mx-2 rounded-sm">
+    <div className=" px-2  m-2 rounded-sm">
       {members.map((member, index) => (
         <div
-          className="grid grid-cols-5 gap-2 p-3 rounded-sm items-center font-normal  mb-2 shadow"
+          className="grid grid-cols-5  p-3 rounded-sm  font-normal  mb-2 shadow"
           key={index}
         >
           <h1 className="text-base font-medium  text-gray-800 dark:text-gray-200">
@@ -89,7 +89,7 @@ const ListOfMembers = () => {
                   width="16"
                   height="16"
                   fill="none"
-                  stroke="currentColor" // Ensures the color is inherited from the parent
+                  stroke="currentColor"
                 >
                   <path
                     d="M19.5 5.5L18.8803 15.5251C18.7219 18.0864 18.6428 19.3671 18.0008 20.2879C17.6833 20.7431 17.2747 21.1273 16.8007 21.416C15.8421 22 14.559 22 11.9927 22C9.42312 22 8.1383 22 7.17905 21.4149C6.7048 21.1257 6.296 20.7408 5.97868 20.2848C5.33688 19.3626 5.25945 18.0801 5.10461 15.5152L4.5 5.5"
@@ -129,15 +129,15 @@ const ListOfMembers = () => {
                   <path
                     d="M15.2141 5.98239L16.6158 4.58063C17.39 3.80646 18.6452 3.80646 19.4194 4.58063C20.1935 5.3548 20.1935 6.60998 19.4194 7.38415L18.0176 8.78591M15.2141 5.98239L6.98023 14.2163C5.93493 15.2616 5.41226 15.7842 5.05637 16.4211C4.70047 17.058 4.3424 18.5619 4 20C5.43809 19.6576 6.94199 19.2995 7.57889 18.9436C8.21579 18.5877 8.73844 18.0651 9.78375 17.0198L18.0176 8.78591M15.2141 5.98239L18.0176 8.78591"
                     stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                   <path
                     d="M11 20H17"
                     stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
                   />
                 </svg>
               }
