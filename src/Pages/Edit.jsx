@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Dropdown from "../Components/DropDown";
 
 const Edit = () => {
   const modes = ["Basic", "Account", "Advance"];
@@ -6,8 +7,8 @@ const Edit = () => {
 
   console.log(activeMode);
   return (
-    <div className="flex  min-h-full flex-1 flex-col justify-center px-5 py-12 lg:px-8">
-      <div className="  sm:mx-auto sm:w-full sm:max-w-sm  ">
+    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <h2 className="  text-2xl/9 font-bold tracking-tight text-white">
           Edit member
         </h2>
@@ -19,9 +20,7 @@ const Edit = () => {
             <button
               onClick={() => setActiveMode(mode)}
               className={` w-full text-sm text-center px-2 py-1 rounded-md ${
-                activeMode === mode
-                  ? "bg-slate-900 px-6 text-white font-semibold "
-                  : "text-grey-400 font-normal "
+                activeMode === mode ? "bg-slate-900 " : ""
               }`}
             >
               {mode}
@@ -39,13 +38,13 @@ const Edit = () => {
         <div className=" flex justify-between items-center gap-3">
           <button
             type="submit"
-            className="flex w-full justify-center rounded-md   px-3 py-1 text-sm/6 font-semibold text-white shadow-sm hover:bg-slate-500 border-2 border-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="flex w-full justify-center rounded-md   px-3 py-1 text-sm/6 font-semibold text-white shadow-sm hover:bg-slate-500 border-2 border-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="flex w-full justify-center rounded-md bg-blue-600 px-3 py-1 text-sm/6 font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
           >
             Update
           </button>
@@ -57,10 +56,10 @@ const Edit = () => {
 
 export default Edit;
 
-const Basic = () => {
+const Account = () => {
   return (
     <>
-      <form action="#" method="POST" className="space-y-3">
+      <form method="POST" className="space-y-3">
         <div>
           <label className="block text-sm/6 font-medium text-white">
             Email address
@@ -70,9 +69,10 @@ const Basic = () => {
               id="email"
               name="email"
               type="email"
+              placeholder="user@gmail.com"
               required
               autoComplete="email"
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 p-3 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 p-3 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm/6"
             />
           </div>
         </div>
@@ -88,8 +88,9 @@ const Basic = () => {
               id="password"
               name="password"
               type="password"
+              placeholder="******"
               required
-              className="block p-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 p-3 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm/6"
             />
           </div>
         </div>
@@ -103,9 +104,10 @@ const Basic = () => {
             <input
               id="confirm-password"
               name="confirm-password"
+              placeholder="******"
               type="password"
               required
-              className="block p-3 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 p-3 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm/6"
             />
           </div>
         </div>
@@ -113,9 +115,55 @@ const Basic = () => {
     </>
   );
 };
-const Account = () => {
-  return <></>;
+const Basic = () => {
+  return (
+    <>
+      <form method="POST" className="space-y-3">
+        <div>
+          <label className="block text-sm/6 font-medium text-white">
+            Display name
+          </label>
+          <div className="mt-1">
+            <input
+              id="name"
+              name="name"
+              type="name"
+              placeholder="admin"
+              required
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 p-3 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm/6"
+            />
+          </div>
+        </div>
+      </form>
+    </>
+  );
 };
 const Advance = () => {
-  return <></>;
+  const Roles = ["User", "Admin"];
+  const Status = ["Active", "Resign"];
+  return (
+    <>
+      <div className="space-y-3">
+        <div>
+          <div className="flex items-center justify-between">
+            <label className="block text-sm/6 font-medium text-white">
+              Role
+            </label>
+          </div>
+          <Dropdown options={Roles} />
+        </div>
+        <div>
+          <div className="flex items-center justify-between">
+            <label className="block text-sm/6 font-medium text-white">
+              Status
+            </label>
+          </div>
+          <Dropdown options={Status} />
+          <p className=" mt-1 mb-4 text-sm/6 text-gray-500">
+            Status resign means user no longer work here.
+          </p>
+        </div>
+      </div>
+    </>
+  );
 };
